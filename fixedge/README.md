@@ -1,6 +1,8 @@
-# b2bits-config
+# FIXEdge configuration
 
-This repository contain default configurations ready to be used in [Helm Charts for EPAM B2Bits products](https://github.com/morozandralek/helmcharts).
+This is default configuration for FIXEdge, ready to be used in [Helm Charts for EPAM B2Bits products](https://github.com/morozandralek/helmcharts).
+
+Read more about FIXEdge configuration at [Official FIXEdge Knowledge Base](https://kb.b2bits.com/display/B2BITS/FIXEdge+Configuration).
 
 ## Where to get help
 

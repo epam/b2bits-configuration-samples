@@ -1,6 +1,8 @@
-# b2bits-config
+# FIXICC Agent configuration
 
-This repository contain default configurations ready to be used in [Helm Charts for EPAM B2Bits products](https://github.com/morozandralek/helmcharts).
+This repository contain default FIXICC Agent configuration ready to be used in [Helm Charts for EPAM B2Bits products](https://github.com/morozandralek/helmcharts).
+
+Read more about FIXICC Agnet configuration at [Official FIXICC Knowledge Base](https://kb.b2bits.com/pages/viewpage.action?pageId=6226101). 
 
 ## Where to get help
 
