@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <SecurityPatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %c{1.} - %msg%n">
+                <replace regex="(554(\s)*=(\s)*)([\w[^\w#|\x01,]]*?)((\s)*[#|\||\x01|,])" replacement="$1*****$5"/>
+                <replace regex="([P|p][A|a][S|s][S|s][W|w][O|o][R|r][D|d](\s)*[=|'|\x22](\s)*)([\w[^\w,'\x22\x20\n]]*)([,|'|\x22|\x20|\n])" replacement="$1*****$5"/>
+                <replace regex = "&lt;Password&gt;(.*?)&lt;/Password&gt;" replacement="&lt;Password&gt;*****&lt;/Password&gt;"/>
+            </SecurityPatternLayout>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="DEBUG">
+            <AppenderRef ref="Console"/>
+        </Root>
+
+        <Logger name="com.epam.fixengine" level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="com.epam.fej" level="INFO">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.springframework" level="INFO"/>
+        <Logger name="com.epam.fej.cluster.lbc.service" level="INFO"/>
+        <Logger name="com.hazelcast" level="warn"/>
+        <Logger name="org.crsh" level="warn"/>
+        <Logger name="org.apache.kafka" level="info"/>
+
+        <Logger name="com.epam.fej.monitoring" level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+    </Loggers>
+</Configuration>
