@@ -1,0 +1,5 @@
+#if( $event.getMessage() )
+FIX message: $event.getMessage().toPrintableString()
+#else
+Event: $event
+#end

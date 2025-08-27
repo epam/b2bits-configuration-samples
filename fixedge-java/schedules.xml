@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schedules xmlns="http://epam.com/fej/schedules">
+    <schedule id="session1">
+        <task name="start" onLoad="true"/>
+    </schedule>
+    <schedule id="session2">
+        <task name="start" onLoad="true"/>
+    </schedule>
+
+<!--    <schedule id="google_pub_sub_news">-->
+<!--        <task name="start" onLoad="true"/>-->
+<!--    </schedule>-->
+<!--    <schedule id="google_pub_sub_orders">-->
+<!--        <task name="start" onLoad="true"/>-->
+<!--    </schedule>-->
+
+    <!-- JMS endpoints schedule -->
+    <!-- uncomment this to connect JMS endpoints during FEJ start -->
+    <!--
+    <schedule id="JMS_IN">
+        <task name="start" onLoad="true"/>
+    </schedule>
+    <schedule id="JMS_OUT">
+        <task name="start" onLoad="true"/>
+    </schedule>
+    -->
+
+    <!-- Kafka endpoints schedule -->
+    <!-- uncomment this to connect Kafka endpoints during FEJ start -->
+    <!--
+    <schedule id="consumer1">
+        <task name="start" onLoad="true"/>
+    </schedule>
+    <schedule id="producer1">
+        <task name="start" onLoad="true"/>
+    </schedule>
+    -->
+    <!--
+    <schedule id="every10Seconds">
+        <task name="event" timeZone="Europe/Samara">
+            <event cron="*/10 * * ? * *"/>
+        </task>
+    </schedule>
+    -->
+
+    </schedules>

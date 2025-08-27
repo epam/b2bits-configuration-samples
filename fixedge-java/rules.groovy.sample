@@ -1,0 +1,83 @@
+import com.epam.fej.routing.RoutingContext
+import com.epam.fej.server.fix.event.AlertNumLimitFilter
+import com.epam.fej.server.fix.event.FIXSessionStateEvent
+import com.epam.fixengine.SessionState
+
+import static com.epam.fej.routing.CustomRoutingRules.getRejectionRule
+import static com.epam.fej.routing.RoutingHelpers.eventRule
+import static com.epam.fej.routing.RoutingHelpers.messageRule
+import static com.epam.fixengine.SessionState.isConnected
+import static com.epam.fixengine.SessionState.isDisconnected
+import static java.time.temporal.ChronoUnit.SECONDS
+
+RoutingContext rc = routingContext as RoutingContext
+def numOfDisconnectEvents = 2
+def periodInSeconds = 5 * 60
+def disconnectCountFilter = new AlertNumLimitFilter(numOfDisconnectEvents, periodInSeconds)
+[
+        /**
+         * Sample rule to demonstrate routing within the group
+         */
+        messageRule("Routing Rule sample")
+                //source filter - apply this rule to session1 only
+                .sourceCondition({ source -> source.id == "session1" })
+                // context filter - apply this rule for New Order - Single (D) messages
+                .condition({ ctx -> stringValue(ctx.getMessage(), 35) == "D" })
+                // action for rule - resend message to all session within same group and stop message processing
+                .action({ ctx ->
+                    rc.getDestinationsByGroup(ctx.sourceParams.groups).each { adapter ->
+                        adapter.send(ctx.messageEvent)
+                        ctx.exit()
+                    }
+                })
+                .build(),
+
+        /**
+         * Sample rule with notification about session disconnect during session's working hours.
+         * Rule uses event filters, which allows no more that
+         */
+        eventRule("FIX Session Disconnect")
+                // apply for notifications about session state change
+                .eventType(FIXSessionStateEvent.class)
+                // apply only for disconnect events which happened during FIX session working hours
+                // fire no more than 2 notification within 5 minutes
+                .condition({
+                    event ->
+                        def state = event.sessionState as SessionState
+                        return isDisconnected(state) &&
+                                workHoursAlertFilter.isWorkingHours(event) &&
+                                disconnectCountFilter.isAllowed(event)
+                })
+                .action({
+                    event ->
+                        logger.info("[FIX Session Disconnect] Session is disconnected: " + event.sessionId)
+                })
+                .build(),
+
+        /**
+         * Sample rule with notification about session connect during session's working hours.
+         * Rule uses event filters, which allows no more that
+         */
+        eventRule("FIX Session Connect")
+                // apply for notifications about session state change
+                .eventType(FIXSessionStateEvent.class)
+                // apply only for connect events which happened during FIX session working hours
+                // (add additional 10sec quiet period to ignore connect by schedule event)
+                .condition({
+                    event ->
+                        def state = event.sessionState as SessionState
+                        return isConnected(state) &&
+                                workHoursAlertFilter.isWorkingHours(event, 10, SECONDS)
+                })
+                // Notify and reset a counter for disconnect notifications
+                .action({
+                    event ->
+                        //reset disconnect counter
+                        disconnectCountFilter.reset(event.sessionId)
+                        logger.info("[FIX Session Connect] Session is connected: " + event.sessionId)
+                })
+                .build(),
+
+        // Add rules for rejecting messages back as a default rule for all non processed messages
+        getRejectionRule(rc)
+]
