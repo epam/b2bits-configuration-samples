@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast xsi:schemaLocation="http://www.hazelcast.com/schema/config hazelcast-config-5.3.xsd"
+           xmlns="http://www.hazelcast.com/schema/config"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <properties>
+        <property name="hazelcast.mancenter.enabled">false</property>
+        <property name="hazelcast.memcache.enabled">false</property>
+        <property name="hazelcast.rest.enabled">false</property>
+        <property name="hazelcast.wait.seconds.before.join">0</property>
+        <property name="hazelcast.max.no.heartbeat.seconds">60</property>
+        <property name="hazelcast.logging.type">slf4j</property>
+        <property name="com.epam.fej.cluster.reelectOnLeaderFailure">false</property>
+    </properties>
+
+    <member-attributes>
+        <attribute name="com.epam.fej.node.name">${server.id}</attribute>
+    </member-attributes>
+
+    <instance-name>${server.id}</instance-name>
+    <cluster-name>Cluster</cluster-name>
+    <split-brain-protection name="fixedgeJQuorum" enabled="false">
+        <minimum-cluster-size>2</minimum-cluster-size>
+    </split-brain-protection>
+
+    <network>
+        <port auto-increment="true" port-count="10000">5701</port>
+        <outbound-ports>
+            <!--
+            Allowed port range when connecting to other nodes.
+            0 or * means use system provided port.
+            -->
+            <ports>0</ports>
+        </outbound-ports>
+        <join>
+            <multicast enabled="false">
+                <multicast-group>224.2.2.3</multicast-group>
+                <multicast-port>54327</multicast-port>
+            </multicast>
+            <tcp-ip enabled="false">
+                <interface>192.168.1.28</interface>
+            </tcp-ip>
+            <aws enabled="false">
+                <access-key>my-access-key</access-key>
+                <secret-key>my-secret-key</secret-key>
+                <!--optional, default is us-east-1 -->
+                <region>us-west-1</region>
+                <!--optional, default is ec2.amazonaws.com. If set, region shouldn't be set as it will override this property -->
+                <host-header>ec2.amazonaws.com</host-header>
+                <!-- optional, only instances belonging to this group will be discovered, default will try all running instances -->
+                <security-group-name>hazelcast-sg</security-group-name>
+                <tag-key>type</tag-key>
+                <tag-value>hz-nodes</tag-value>
+            </aws>
+        </join>
+        <interfaces enabled="false">
+            <interface>10.10.1.*</interface>
+        </interfaces>
+        <ssl enabled="false"/>
+        <socket-interceptor enabled="false"/>
+        <symmetric-encryption enabled="false">
+            <!--
+               encryption algorithm such as
+               DES/ECB/PKCS5Padding,
+               PBEWithMD5AndDES,
+               AES/CBC/PKCS5Padding,
+               Blowfish,
+               DESede
+            -->
+            <algorithm>PBEWithMD5AndDES</algorithm>
+            <!-- salt value to use when generating the secret key -->
+            <salt>thesalt</salt>
+            <!-- pass phrase to use when generating the secret key -->
+            <password>thepass</password>
+            <!-- iteration count to use when generating the secret key -->
+            <iteration-count>19</iteration-count>
+        </symmetric-encryption>
+    </network>
+    <partition-group enabled="false"/>
+
+</hazelcast>
