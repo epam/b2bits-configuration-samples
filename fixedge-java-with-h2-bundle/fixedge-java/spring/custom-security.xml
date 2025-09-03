@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <!--LDAP Authentication-->
+<!--    <sec:authentication-manager id="authenticationManager" erase-credentials="true">-->
+<!--        <sec:ldap-authentication-provider user-search-filter="${ldap.user.search.filter}"-->
+<!--                                          user-search-base="${ldap.user.search.base}"-->
+<!--                                          group-search-filter="${ldap.group.search.filter}"-->
+<!--                                          group-search-base="${ldap.group.search.base}"-->
+<!--                                          role-prefix="${ldap.group.role.prefix}"/>-->
+<!--    </sec:authentication-manager>-->
+
+<!--    <sec:ldap-server url="${ldap.server}"-->
+<!--                     manager-dn="${ldap.manager.username}"-->
+<!--                     manager-password="${ldap.manager.password}"/>-->
+
+
+    <!--Mock Authentication-->
+    <sec:authentication-manager id="authenticationManager">
+        <sec:authentication-provider>
+            <sec:password-encoder ref="passwordEncoder"/>
+            <sec:user-service id="userDetailsService" properties="admin-users.properties"/>
+        </sec:authentication-provider>
+        <sec:authentication-provider user-service-ref="userDetailsServiceWS">
+            <sec:password-encoder ref="passwordEncoder"/>
+        </sec:authentication-provider>
+    </sec:authentication-manager>
+
+    <!-- Password encode bean to support plain text passwords in user.properties -->
+    <bean id="passwordEncoder"
+          class="org.springframework.security.crypto.password.NoOpPasswordEncoder"
+          factory-method="getInstance"/>
+
+    <!-- Password encode bean to support passwords encripted with BCrypt way in admin.properties -->
+<!--    <bean id="adminPasswordEncoder"-->
+<!--          class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>-->
+</beans>

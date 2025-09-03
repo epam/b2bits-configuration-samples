@@ -1,0 +1,2245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="rej.xsl"?>
+<!DOCTYPE map SYSTEM "rej.dtd">
+<map fixprotocol="FIX.4.2" mapversion="1.17" dtdrevision="1.14">
+	<groupdef name="RelatedSym" ldtag="146">
+		<fielddef field="311" mandatory="C"/>
+		<fielddef field="312" mandatory="N"/>
+		<fielddef field="309" mandatory="N"/>
+		<fielddef field="305" mandatory="N"/>
+		<fielddef field="310" mandatory="N"/>
+		<fielddef field="313" mandatory="C"/>
+		<fielddef field="314" mandatory="N"/>
+		<fielddef field="315" mandatory="C"/> 
+		<fielddef field="316" mandatory="C"/> 
+		<fielddef field="317" mandatory="N"/>
+		<fielddef field="436" mandatory="N"/>
+		<fielddef field="435" mandatory="N"/>
+		<fielddef field="308" mandatory="N"/>
+		<fielddef field="306" mandatory="N"/>
+		<fielddef field="307" mandatory="N"/>
+		<fielddef field="319" mandatory="N"/>
+		<fielddef field="54" mandatory="N"/>
+		<fielddef field="318" mandatory="N"/>
+	</groupdef>
+	<groupdef name="QuoteSets" ldtag="296">
+		<fielddef field="302" mandatory="C"/>
+		<fielddef field="311" mandatory="C"/>
+		<fielddef field="312" mandatory="N"/>
+		<fielddef field="309" mandatory="N"/>
+		<fielddef field="305" mandatory="N"/>
+		<fielddef field="310" mandatory="N"/>
+		<fielddef field="313" mandatory="C"/>
+		<fielddef field="314" mandatory="N"/>
+		<fielddef field="315" mandatory="N"/>
+		<fielddef field="316" mandatory="N"/>
+		<fielddef field="317" mandatory="N"/>
+		<fielddef field="436" mandatory="N"/>
+		<fielddef field="435" mandatory="N"/>
+		<fielddef field="308" mandatory="N"/>
+		<fielddef field="306" mandatory="N"/>
+		<fielddef field="307" mandatory="N"/>
+		<fielddef field="304" mandatory="C"/>
+		<fielddef field="295" mandatory="C"/>
+		<groupdef name="QuoteEntries" ldtag="295">
+			<fielddef field="299" mandatory="C"/>
+			<fielddef field="55" mandatory="C"/>
+			<fielddef field="65" mandatory="N"/>
+			<fielddef field="48" mandatory="N"/>
+			<fielddef field="22" mandatory="N"/>
+			<fielddef field="167" mandatory="N"/>
+			<fielddef field="200" mandatory="C"/>
+			<fielddef field="205" mandatory="N"/>
+			<fielddef field="201" mandatory="C"/>
+			<fielddef field="202" mandatory="C"/>
+			<fielddef field="206" mandatory="N"/>
+			<fielddef field="231" mandatory="N"/>
+			<fielddef field="223" mandatory="N"/>
+			<fielddef field="207" mandatory="N"/>
+			<fielddef field="106" mandatory="N"/>
+			<fielddef field="107" mandatory="N"/>
+		</groupdef>
+	</groupdef>
+	<groupdef name="InstrumentLeg" ldtag="555">
+		<fielddef field="600" mandatory="Y"/>
+		<fielddef field="654" mandatory="N"/>
+		<fielddef field="608" mandatory="N"/>
+		<fielddef field="610" mandatory="N"/>
+		<fielddef field="612" mandatory="N"/>
+		<fielddef field="624" mandatory="N"/>
+		<fielddef field="623" mandatory="N"/>
+		<fielddef field="564" mandatory="N"/>
+	</groupdef>
+	<apprejrules>
+		<msg2rejrule msgid="6" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="23"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="7" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="2"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="8" rejid="Q">
+			<ruletag2tag tgfield="37">
+				<source>
+					<singlefield field="37"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="17">
+				<source>
+					<singlefield field="17"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="127" val="Z"/>
+			<ruletag2tag tgfield="55">
+				<source>
+					<singlefield field="55"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="65">
+				<source>
+					<singlefield field="65"/>
+				</source>
+				<cond>
+					<exist field="65"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="48">
+				<source>
+					<singlefield field="48"/>
+				</source>
+				<cond>
+					<exist field="48"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="22">
+				<source>
+					<singlefield field="22"/>
+				</source>
+				<cond>
+					<exist field="22"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="167">
+				<source>
+					<singlefield field="167"/>
+				</source>
+				<cond>
+					<exist field="167"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="200">
+				<source>
+					<singlefield field="200"/>
+				</source>
+				<cond>
+					<exist field="200"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="205">
+				<source>
+					<singlefield field="205"/>
+				</source>
+				<cond>
+					<exist field="205"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="201">
+				<source>
+					<singlefield field="201"/>
+				</source>
+				<cond>
+					<exist field="201"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="202">
+				<source>
+					<singlefield field="202"/>
+				</source>
+				<cond>
+					<exist field="202"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="206">
+				<source>
+					<singlefield field="206"/>
+				</source>
+				<cond>
+					<exist field="206"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="231">
+				<source>
+					<singlefield field="231"/>
+				</source>
+				<cond>
+					<exist field="231"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="223">
+				<source>
+					<singlefield field="223"/>
+				</source>
+				<cond>
+					<exist field="223"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="207">
+				<source>
+					<singlefield field="207"/>
+				</source>
+				<cond>
+					<exist field="207"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="106">
+				<source>
+					<singlefield field="106"/>
+				</source>
+				<cond>
+					<exist field="106"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="107">
+				<source>
+					<singlefield field="107"/>
+				</source>
+				<cond>
+					<exist field="107"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="54">
+				<source>
+					<singlefield field="54"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="38">
+				<source>
+					<singlefield field="38"/>
+				</source>
+				<cond>
+					<exist field="38"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="152">
+				<source>
+					<singlefield field="152"/>
+				</source>
+				<cond>
+					<exist field="152"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="32">
+				<source>
+					<singlefield field="32"/>
+				</source>
+				<cond>
+					<exist field="32"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="31">
+				<source>
+					<singlefield field="31"/>
+				</source>
+				<cond>
+					<exist field="31"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="9" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="11"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="a" rejid="b">
+			<ruletag2tag tgfield="117">
+				<source>
+					<singlefield field="117"/>
+				</source>
+				<cond>
+					<exist field="117"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="297" val="5"/>
+			<ruletag2tag tgfield="336">
+				<source>
+					<singlefield field="336"/>
+				</source>
+				<cond>
+					<exist field="336"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="AB" rejid="8">
+			<ruletag2val tgfield="37" val="NONE"/>
+			<ruletag2tag tgfield="11">
+				<source>
+					<singlefield field="11"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2func tgfield="17" func="UniqueID"/>
+			<ruletag2val tgfield="20" val="0"/>
+			<ruletag2val tgfield="150" val="8"/>
+			<ruletag2val tgfield="39" val="8"/>
+			<ruletag2val tgfield="103" val="99"/>
+			<ruletag2tag tgfield="1">
+				<source>
+					<singlefield field="1"/>
+				</source>
+				<cond>
+					<exist field="1"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="63">
+				<source>
+					<singlefield field="63"/>
+				</source>
+				<cond>
+					<exist field="63"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="64">
+				<source>
+					<singlefield field="64"/>
+				</source>
+				<cond>
+					<exist field="64"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="55">
+				<source>
+					<singlefield field="55"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="65">
+				<source>
+					<singlefield field="65"/>
+				</source>
+				<cond>
+					<exist field="65"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="48">
+				<source>
+					<singlefield field="48"/>
+				</source>
+				<cond>
+					<exist field="48"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="22">
+				<source>
+					<singlefield field="22"/>
+				</source>
+				<cond>
+					<exist field="22"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="167">
+				<source>
+					<singlefield field="167"/>
+				</source>
+				<cond>
+					<exist field="167"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="200">
+				<source>
+					<singlefield field="200"/>
+				</source>
+				<cond>
+					<exist field="200"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="202">
+				<source>
+					<singlefield field="202"/>
+				</source>
+				<cond>
+					<exist field="202"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="206">
+				<source>
+					<singlefield field="206"/>
+				</source>
+				<cond>
+					<exist field="206"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="231">
+				<source>
+					<singlefield field="231"/>
+				</source>
+				<cond>
+					<exist field="231"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="223">
+				<source>
+					<singlefield field="223"/>
+				</source>
+				<cond>
+					<exist field="223"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="207">
+				<source>
+					<singlefield field="207"/>
+				</source>
+				<cond>
+					<exist field="207"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="106">
+				<source>
+					<singlefield field="106"/>
+				</source>
+				<cond>
+					<exist field="106"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="107">
+				<source>
+					<singlefield field="107"/>
+				</source>
+				<cond>
+					<exist field="107"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="54">
+				<source>
+					<singlefield field="54"/>
+				</source>
+				<cond>
+					<exist field="54"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="54" val="B">
+				<cond>
+					<notexist field="54"/>
+				</cond>
+			</ruletag2val>
+			<ruletag2tag tgfield="38">
+				<source>
+					<singlefield field="38"/>
+				</source>
+				<cond>
+					<exist field="38"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="152">
+				<source>
+					<singlefield field="152"/>
+				</source>
+				<cond>
+					<exist field="152"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="40">
+				<source>
+					<singlefield field="40"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="44">
+				<source>
+					<singlefield field="44"/>
+				</source>
+				<cond>
+					<exist field="44"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="99">
+				<source>
+					<singlefield field="99"/>
+				</source>
+				<cond>
+					<exist field="99"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="211">
+				<source>
+					<singlefield field="211"/>
+				</source>
+				<cond>
+					<exist field="211"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="388">
+				<source>
+					<singlefield field="388"/>
+				</source>
+				<cond>
+					<exist field="388"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="389">
+				<source>
+					<singlefield field="389"/>
+				</source>
+				<cond>
+					<exist field="389"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="15">
+				<source>
+					<singlefield field="15"/>
+				</source>
+				<cond>
+					<exist field="15"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="376">
+				<source>
+					<singlefield field="376"/>
+				</source>
+				<cond>
+					<exist field="376"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="377">
+				<source>
+					<singlefield field="377"/>
+				</source>
+				<cond>
+					<exist field="377"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="59">
+				<source>
+					<singlefield field="59"/>
+				</source>
+				<cond>
+					<exist field="59"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="168">
+				<source>
+					<singlefield field="168"/>
+				</source>
+				<cond>
+					<exist field="168"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="432">
+				<source>
+					<singlefield field="432"/>
+				</source>
+				<cond>
+					<exist field="432"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="126">
+				<source>
+					<singlefield field="126"/>
+				</source>
+				<cond>
+					<exist field="126"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="18">
+				<source>
+					<singlefield field="18"/>
+				</source>
+				<cond>
+					<exist field="18"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="47">
+				<source>
+					<singlefield field="47"/>
+				</source>
+				<cond>
+					<exist field="47"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="32" val="0"/>
+			<ruletag2val tgfield="31" val="0"/>
+			<ruletag2val tgfield="151" val="0"/>
+			<ruletag2val tgfield="14" val="0"/>
+			<ruletag2val tgfield="6" val="0"/>
+			<ruletag2tag tgfield="427">
+				<source>
+					<singlefield field="427"/>
+				</source>
+				<cond>
+					<exist field="427"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2func tgfield="60" func="CurrentUTCTime"/>
+			<ruletag2tag tgfield="12">
+				<source>
+					<singlefield field="12"/>
+				</source>
+				<cond>
+					<exist field="12"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="13">
+				<source>
+					<singlefield field="13"/>
+				</source>
+				<cond>
+					<exist field="13"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="120">
+				<source>
+					<singlefield field="120"/>
+				</source>
+				<cond>
+					<exist field="120"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="21">
+				<source>
+					<singlefield field="21"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="110">
+				<source>
+					<singlefield field="110"/>
+				</source>
+				<cond>
+					<exist field="110"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="111">
+				<source>
+					<singlefield field="111"/>
+				</source>
+				<cond>
+					<exist field="111"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="77">
+				<source>
+					<singlefield field="77"/>
+				</source>
+				<cond>
+					<exist field="77"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="210">
+				<source>
+					<singlefield field="210"/>
+				</source>
+				<cond>
+					<exist field="210"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="109">
+				<source>
+					<singlefield field="109"/>
+				</source>
+				<cond>
+					<exist field="109"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="439">
+				<source>
+					<singlefield field="439"/>
+				</source>
+				<cond>
+					<exist field="439"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="440">
+				<source>
+					<singlefield field="440"/>
+				</source>
+				<cond>
+					<exist field="440"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="442" val="3"/>
+			<ruletag2tag tgfield="555">
+				<source>
+					<singlefield field="555"/>
+				</source>
+			</ruletag2tag>
+			<rulegroup2group targetgroup="InstrumentLeg">
+				<sourcegroup name="InstrumentLeg"/>
+			</rulegroup2group>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="AC" rejid="9">
+			<ruletag2tag tgfield="37">
+				<source>
+					<singlefield field="37"/>
+				</source>
+				<cond>
+					<exist field="37"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="37" val="NONE">
+				<cond>
+					<notexist field="37"/>
+				</cond>
+			</ruletag2val>
+			<ruletag2tag tgfield="11">
+				<source>
+					<singlefield field="11"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="41">
+				<source>
+					<singlefield field="41"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="39" val="0"/>
+			<ruletag2tag tgfield="1">
+				<source>
+					<singlefield field="1"/>
+				</source>
+				<cond>
+					<exist field="1"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="434" val="2"/>
+			<ruletag2val tgfield="102" val="99"/>
+			<ruletag2func tgfield="60" func="CurrentUTCTime"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="b" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="117"/>
+				</source>
+				<cond>
+					<exist field="117"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="B" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="148"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="c" rejid="d">
+			<ruletag2tag tgfield="320">
+				<source>
+					<singlefield field="320"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2func tgfield="322" func="UniqueID"/>
+			<ruletag2val tgfield="323" val="5">
+				<cond>
+					<equal field="321" val="0"/>
+				</cond>
+			</ruletag2val>
+			<ruletag2val tgfield="323" val="5">
+				<cond>
+					<equal field="321" val="1"/>
+				</cond>
+			</ruletag2val>
+			<ruletag2val tgfield="323" val="6">
+				<cond>
+					<equal field="321" val="2"/>
+				</cond>
+			</ruletag2val>
+			<ruletag2val tgfield="323" val="6">
+				<cond>
+					<equal field="321" val="3"/>
+				</cond>
+			</ruletag2val>
+			<ruletag2val tgfield="393" val="0"/>
+			<ruletag2tag tgfield="55">
+				<source>
+					<singlefield field="55"/>
+				</source>
+				<cond>
+					<exist field="55"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="65">
+				<source>
+					<singlefield field="65"/>
+				</source>
+				<cond>
+					<exist field="65"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="48">
+				<source>
+					<singlefield field="48"/>
+				</source>
+				<cond>
+					<exist field="48"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="22">
+				<source>
+					<singlefield field="22"/>
+				</source>
+				<cond>
+					<exist field="22"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="167">
+				<source>
+					<singlefield field="167"/>
+				</source>
+				<cond>
+					<exist field="167"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="200">
+				<source>
+					<singlefield field="200"/>
+				</source>
+				<cond>
+					<exist field="200"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="205">
+				<source>
+					<singlefield field="205"/>
+				</source>
+				<cond>
+					<exist field="205"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="201">
+				<source>
+					<singlefield field="201"/>
+				</source>
+				<cond>
+					<exist field="201"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="202">
+				<source>
+					<singlefield field="202"/>
+				</source>
+				<cond>
+					<exist field="202"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="206">
+				<source>
+					<singlefield field="206"/>
+				</source>
+				<cond>
+					<exist field="206"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="231">
+				<source>
+					<singlefield field="231"/>
+				</source>
+				<cond>
+					<exist field="231"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="223">
+				<source>
+					<singlefield field="223"/>
+				</source>
+				<cond>
+					<exist field="223"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="207">
+				<source>
+					<singlefield field="207"/>
+				</source>
+				<cond>
+					<exist field="207"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="106">
+				<source>
+					<singlefield field="106"/>
+				</source>
+				<cond>
+					<exist field="106"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="107">
+				<source>
+					<singlefield field="107"/>
+				</source>
+				<cond>
+					<exist field="107"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="15">
+				<source>
+					<singlefield field="15"/>
+				</source>
+				<cond>
+					<exist field="15"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="336">
+				<source>
+					<singlefield field="336"/>
+				</source>
+				<cond>
+					<exist field="336"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="146">
+				<source>
+					<singlefield field="146"/>
+				</source>
+				<cond>
+					<exist field="146"/>
+				</cond>
+			</ruletag2tag>
+			<rulegroup2group targetgroup="RelatedSym">
+				<sourcegroup name="RelatedSym"/>
+				<cond>
+					<exist field="146"/>
+				</cond>
+			</rulegroup2group>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="C" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="164"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="d" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="322"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="D" rejid="8">
+			<ruletag2val tgfield="37" val="NONE"/>
+			<ruletag2tag tgfield="11">
+				<source>
+					<singlefield field="11"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="109">
+				<source>
+					<singlefield field="109"/>
+				</source>
+				<cond>
+					<exist field="109"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="76">
+				<source>
+					<singlefield field="76"/>
+				</source>
+				<cond>
+					<exist field="76"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2func tgfield="17" func="UniqueID"/>
+			<ruletag2val tgfield="20" val="0"/>
+			<ruletag2val tgfield="150" val="8"/>
+			<ruletag2val tgfield="39" val="8"/>
+			<ruletag2val tgfield="103" val="99"/>
+			<ruletag2tag tgfield="1">
+				<source>
+					<singlefield field="1"/>
+				</source>
+				<cond>
+					<exist field="1"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="63">
+				<source>
+					<singlefield field="63"/>
+				</source>
+				<cond>
+					<exist field="63"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="64">
+				<source>
+					<singlefield field="64"/>
+				</source>
+				<cond>
+					<exist field="64"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="55">
+				<source>
+					<singlefield field="55"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="65">
+				<source>
+					<singlefield field="65"/>
+				</source>
+				<cond>
+					<exist field="65"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="48">
+				<source>
+					<singlefield field="48"/>
+				</source>
+				<cond>
+					<exist field="48"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="22">
+				<source>
+					<singlefield field="22"/>
+				</source>
+				<cond>
+					<exist field="22"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="167">
+				<source>
+					<singlefield field="167"/>
+				</source>
+				<cond>
+					<exist field="167"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="200">
+				<source>
+					<singlefield field="200"/>
+				</source>
+				<cond>
+					<exist field="200"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="205">
+				<source>
+					<singlefield field="205"/>
+				</source>
+				<cond>
+					<exist field="205"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="201">
+				<source>
+					<singlefield field="201"/>
+				</source>
+				<cond>
+					<exist field="201"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="202">
+				<source>
+					<singlefield field="202"/>
+				</source>
+				<cond>
+					<exist field="202"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="206">
+				<source>
+					<singlefield field="206"/>
+				</source>
+				<cond>
+					<exist field="206"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="231">
+				<source>
+					<singlefield field="231"/>
+				</source>
+				<cond>
+					<exist field="231"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="223">
+				<source>
+					<singlefield field="223"/>
+				</source>
+				<cond>
+					<exist field="223"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="207">
+				<source>
+					<singlefield field="207"/>
+				</source>
+				<cond>
+					<exist field="207"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="106">
+				<source>
+					<singlefield field="106"/>
+				</source>
+				<cond>
+					<exist field="106"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="107">
+				<source>
+					<singlefield field="107"/>
+				</source>
+				<cond>
+					<exist field="107"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="54">
+				<source>
+					<singlefield field="54"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="38">
+				<source>
+					<singlefield field="38"/>
+				</source>
+				<cond>
+					<exist field="38"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="152">
+				<source>
+					<singlefield field="152"/>
+				</source>
+				<cond>
+					<exist field="152"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="40">
+				<source>
+					<singlefield field="40"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="44">
+				<source>
+					<singlefield field="44"/>
+				</source>
+				<cond>
+					<exist field="44"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="99">
+				<source>
+					<singlefield field="99"/>
+				</source>
+				<cond>
+					<exist field="99"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="211">
+				<source>
+					<singlefield field="211"/>
+				</source>
+				<cond>
+					<exist field="211"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="388">
+				<source>
+					<singlefield field="388"/>
+				</source>
+				<cond>
+					<exist field="388"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="389">
+				<source>
+					<singlefield field="389"/>
+				</source>
+				<cond>
+					<exist field="389"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="15">
+				<source>
+					<singlefield field="15"/>
+				</source>
+				<cond>
+					<exist field="15"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="376">
+				<source>
+					<singlefield field="376"/>
+				</source>
+				<cond>
+					<exist field="376"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="377">
+				<source>
+					<singlefield field="377"/>
+				</source>
+				<cond>
+					<exist field="377"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="59">
+				<source>
+					<singlefield field="59"/>
+				</source>
+				<cond>
+					<exist field="59"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="168">
+				<source>
+					<singlefield field="168"/>
+				</source>
+				<cond>
+					<exist field="168"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="432">
+				<source>
+					<singlefield field="432"/>
+				</source>
+				<cond>
+					<exist field="432"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="126">
+				<source>
+					<singlefield field="126"/>
+				</source>
+				<cond>
+					<exist field="126"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="18">
+				<source>
+					<singlefield field="18"/>
+				</source>
+				<cond>
+					<exist field="18"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="47">
+				<source>
+					<singlefield field="47"/>
+				</source>
+				<cond>
+					<exist field="47"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="32" val="0"/>
+			<ruletag2val tgfield="31" val="0"/>
+			<ruletag2val tgfield="151" val="0"/>
+			<ruletag2val tgfield="14" val="0"/>
+			<ruletag2val tgfield="6" val="0"/>
+			<ruletag2tag tgfield="427">
+				<source>
+					<singlefield field="427"/>
+				</source>
+				<cond>
+					<exist field="427"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="12">
+				<source>
+					<singlefield field="12"/>
+				</source>
+				<cond>
+					<exist field="12"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="13">
+				<source>
+					<singlefield field="13"/>
+				</source>
+				<cond>
+					<exist field="13"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="120">
+				<source>
+					<singlefield field="120"/>
+				</source>
+				<cond>
+					<exist field="120"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="21">
+				<source>
+					<singlefield field="21"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="110">
+				<source>
+					<singlefield field="110"/>
+				</source>
+				<cond>
+					<exist field="110"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="111">
+				<source>
+					<singlefield field="111"/>
+				</source>
+				<cond>
+					<exist field="111"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="77">
+				<source>
+					<singlefield field="77"/>
+				</source>
+				<cond>
+					<exist field="77"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="210">
+				<source>
+					<singlefield field="210"/>
+				</source>
+				<cond>
+					<exist field="210"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="193">
+				<source>
+					<singlefield field="193"/>
+				</source>
+				<cond>
+					<exist field="193"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="192">
+				<source>
+					<singlefield field="192"/>
+				</source>
+				<cond>
+					<exist field="192"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="439">
+				<source>
+					<singlefield field="439"/>
+				</source>
+				<cond>
+					<exist field="439"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="440">
+				<source>
+					<singlefield field="440"/>
+				</source>
+				<cond>
+					<exist field="440"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2func tgfield="60" func="CurrentUTCTime"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="e" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="324"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="E" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="66"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="f" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="324"/>
+				</source>
+				<cond>
+					<exist field="324"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="F" rejid="9">
+			<ruletag2tag tgfield="37">
+				<source>
+					<singlefield field="37"/>
+				</source>
+				<cond>
+					<exist field="37"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="37" val="NONE">
+				<cond>
+					<notexist field="37"/>
+				</cond>
+			</ruletag2val>
+			<ruletag2tag tgfield="11">
+				<source>
+					<singlefield field="11"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="41">
+				<source>
+					<singlefield field="41"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="39" val="0"/>
+			<ruletag2tag tgfield="109">
+				<source>
+					<singlefield field="109"/>
+				</source>
+				<cond>
+					<exist field="109"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="76">
+				<source>
+					<singlefield field="76"/>
+				</source>
+				<cond>
+					<exist field="76"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="66">
+				<source>
+					<singlefield field="66"/>
+				</source>
+				<cond>
+					<exist field="66"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="1">
+				<source>
+					<singlefield field="1"/>
+				</source>
+				<cond>
+					<exist field="1"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2func tgfield="60" func="CurrentUTCTime"/>
+			<ruletag2val tgfield="434" val="1"/>
+			<ruletag2val tgfield="102" val="99"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="g" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="335"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="G" rejid="9">
+			<ruletag2tag tgfield="37">
+				<source>
+					<singlefield field="37"/>
+				</source>
+				<cond>
+					<exist field="37"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="37" val="NONE">
+				<cond>
+					<notexist field="37"/>
+				</cond>
+			</ruletag2val>
+			<ruletag2tag tgfield="11">
+				<source>
+					<singlefield field="11"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="41">
+				<source>
+					<singlefield field="41"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="39" val="0"/>
+			<ruletag2tag tgfield="109">
+				<source>
+					<singlefield field="109"/>
+				</source>
+				<cond>
+					<exist field="109"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="76">
+				<source>
+					<singlefield field="76"/>
+				</source>
+				<cond>
+					<exist field="76"/>
+				</cond>
+			</ruletag2tag>
+
+			<ruletag2tag tgfield="66">
+				<source>
+					<singlefield field="66"/>
+				</source>
+				<cond>
+					<exist field="66"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="1">
+				<source>
+					<singlefield field="1"/>
+				</source>
+				<cond>
+					<exist field="1"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2func tgfield="60" func="CurrentUTCTime"/>
+			<ruletag2val tgfield="434" val="2"/>
+			<ruletag2val tgfield="102" val="99"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="h" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="335"/>
+				</source>
+				<cond>
+					<exist field="335"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="H" rejid="8">
+			<ruletag2tag tgfield="37">
+				<source>
+					<singlefield field="37"/>
+				</source>
+				<cond>
+					<exist field="37"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="37" val="NONE">
+				<cond>
+					<notexist field="37"/>
+				</cond>
+			</ruletag2val>
+			<ruletag2tag tgfield="11">
+				<source>
+					<singlefield field="11"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="109">
+				<source>
+					<singlefield field="109"/>
+				</source>
+				<cond>
+					<exist field="109"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="76">
+				<source>
+					<singlefield field="76"/>
+				</source>
+				<cond>
+					<exist field="76"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2func tgfield="17" func="UniqueID"/>
+			<ruletag2val tgfield="20" val="3"/>
+			<ruletag2val tgfield="150" val="8"/>
+			<ruletag2val tgfield="39" val="8"/>
+			<ruletag2val tgfield="103" val="99"/>
+			<ruletag2tag tgfield="1">
+				<source>
+					<singlefield field="1"/>
+				</source>
+				<cond>
+					<exist field="1"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="55">
+				<source>
+					<singlefield field="55"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="65">
+				<source>
+					<singlefield field="65"/>
+				</source>
+				<cond>
+					<exist field="65"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="48">
+				<source>
+					<singlefield field="48"/>
+				</source>
+				<cond>
+					<exist field="48"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="22">
+				<source>
+					<singlefield field="22"/>
+				</source>
+				<cond>
+					<exist field="22"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="200">
+				<source>
+					<singlefield field="200"/>
+				</source>
+				<cond>
+					<exist field="200"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="205">
+				<source>
+					<singlefield field="205"/>
+				</source>
+				<cond>
+					<exist field="205"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="201">
+				<source>
+					<singlefield field="201"/>
+				</source>
+				<cond>
+					<exist field="201"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="202">
+				<source>
+					<singlefield field="202"/>
+				</source>
+				<cond>
+					<exist field="202"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="167">
+				<source>
+					<singlefield field="167"/>
+				</source>
+				<cond>
+					<exist field="167"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="206">
+				<source>
+					<singlefield field="206"/>
+				</source>
+				<cond>
+					<exist field="206"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="207">
+				<source>
+					<singlefield field="207"/>
+				</source>
+				<cond>
+					<exist field="207"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="231">
+				<source>
+					<singlefield field="231"/>
+				</source>
+				<cond>
+					<exist field="231"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="223">
+				<source>
+					<singlefield field="223"/>
+				</source>
+				<cond>
+					<exist field="223"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="106">
+				<source>
+					<singlefield field="106"/>
+				</source>
+				<cond>
+					<exist field="106"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="107">
+				<source>
+					<singlefield field="107"/>
+				</source>
+				<cond>
+					<exist field="107"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="54">
+				<source>
+					<singlefield field="54"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="38" val="0"/>
+			<ruletag2val tgfield="151" val="0"/>
+			<ruletag2val tgfield="14" val="0"/>
+			<ruletag2val tgfield="6" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+			<ruletag2func tgfield="60" func="CurrentUTCTime"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="i" rejid="b">
+			<ruletag2tag tgfield="131">
+				<source>
+					<singlefield field="131"/>
+				</source>
+				<cond>
+					<exist field="131"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="117">
+				<source>
+					<singlefield field="117"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="297" val="5"/>
+			<ruletag2tag tgfield="301">
+				<source>
+					<singlefield field="301"/>
+				</source>
+				<cond>
+					<exist field="301"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="296">
+				<source>
+					<singlefield field="296"/>
+				</source>
+			</ruletag2tag>
+			<rulegroup2group targetgroup="QuoteSets">
+				<sourcegroup name="QuoteSets"/>
+			</rulegroup2group>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="j" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="J" rejid="P">
+			<ruletag2tag tgfield="70">
+				<source>
+					<singlefield field="70"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2func tgfield="75" func="CurrentLocalDate"/>
+			<ruletag2func tgfield="60" func="CurrentUTCTime"/>
+			<ruletag2val tgfield="87" val="1"/>
+			<ruletag2val tgfield="88" val="7"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="k" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="390"/>
+				</source>
+				<cond>
+					<exist field="390"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="K" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="66"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="l" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="390"/>
+				</source>
+				<cond>
+					<exist field="390"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="L" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="66"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="m" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="66"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="M" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="66"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="N" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="66"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="P" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="70"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="Q" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="17"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="R" rejid="b">
+			<ruletag2tag tgfield="131">
+				<source>
+					<singlefield field="131"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="297" val="5"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="S" rejid="b">
+			<ruletag2tag tgfield="131">
+				<source>
+					<singlefield field="131"/>
+				</source>
+				<cond>
+					<exist field="131"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="117">
+				<source>
+					<singlefield field="117"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="297" val="5"/>
+			<ruletag2tag tgfield="301">
+				<source>
+					<singlefield field="301"/>
+				</source>
+				<cond>
+					<exist field="301"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="336">
+				<source>
+					<singlefield field="336"/>
+				</source>
+				<cond>
+					<exist field="336"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="T" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="162"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="V" rejid="Y">
+			<ruletag2tag tgfield="262">
+				<source>
+					<singlefield field="262"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="W" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="262"/>
+				</source>
+				<cond>
+					<exist field="262"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="X" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="262"/>
+				</source>
+				<cond>
+					<exist field="262"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="Y" rejid="j">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="379">
+				<source>
+					<singlefield field="262"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="380" val="0"/>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+		<msg2rejrule msgid="Z" rejid="b">
+			<ruletag2tag tgfield="131">
+				<source>
+					<singlefield field="131"/>
+				</source>
+				<cond>
+					<exist field="131"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="117">
+				<source>
+					<singlefield field="117"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="297" val="5"/>
+			<ruletag2tag tgfield="301">
+				<source>
+					<singlefield field="301"/>
+				</source>
+				<cond>
+					<exist field="301"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2tag tgfield="336">
+				<source>
+					<singlefield field="336"/>
+				</source>
+				<cond>
+					<exist field="336"/>
+				</cond>
+			</ruletag2tag>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+	</apprejrules>
+	<sessionrejrules>
+		<msg2rejrule rejid="3">
+			<ruletag2tag tgfield="45">
+				<source>
+					<singlefield field="34"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2tag tgfield="372">
+				<source>
+					<singlefield field="35"/>
+				</source>
+			</ruletag2tag>
+			<ruletag2val tgfield="58" val="FIX Engine Reject"/>
+		</msg2rejrule>
+	</sessionrejrules>
+</map>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fixdic fixversion="4.2" title="FIX 4.2" date="2008/09/09">
+    <fielddic>
+        <fielddef tag="17" name="ExecID" type="String"/>
+        <fielddef tag="337" name="ContraTrader" type="String"/>
+        <fielddef tag="375" name="ContraBroker" type="String"/>
+        <fielddef tag="527" name="SecondaryExecID" type="String"/>
+        <fielddef tag="789" name="NextExpectedMsgSeqNum" type="int"/>
+        <fielddef tag="1057" name="AggressorIndicator" type="char"/>
+        <fielddef tag="9701" name="OmnibusAccount" type="String"/>
+        <fielddef tag="9702" name="CtiCode" type="char"/>
+        <fielddef tag="9706" name="FeeBilling" type="char"/>
+        <fielddef tag="9707" name="GiveUpFirm" type="String"/>
+        <fielddef tag="9708" name="CmtaGiveupCD" type="String"/>
+        <fielddef tag="9717" name="CorrelationClOrdID" type="String"/>
+        <fielddef tag="9771" name="MMAccount" type="String"/>
+        <fielddef tag="9773" name="MMProtectionReset" type="char"/>
+
+        <fielddef tag="38" name="OrderQty" type="int"/>
+        <fielddef tag="44" name="Price" type="String"/>
+        <fielddef tag="54" name="Side" type="char"/>
+        <fielddef tag="109" name="ClientID" type="String"/>
+        <fielddef tag="60" name="TransactTime" type="String"/>
+        <fielddef tag="77" name="OpenClose" type="char"/>
+        <fielddef tag="1" name="Account" type="String"/>
+        <fielddef tag="440" name="ClearingAccount" type="String"/>
+        <fielddef tag="439" name="ClearingFirm" type="String"/>
+        <fielddef tag="76" name="ExecBroker" type="String"/>
+        <fielddef tag="9324" name="ClearingOptionalData" type="String"/>
+        <fielddef tag="55" name="Symbol" type="String"/>
+        <fielddef tag="167" name="SecurityType" type="String"/>
+        <fielddef tag="48" name="SecurityID" type="int"/>
+        <fielddef tag="200" name="MaturityMonthYear" type="String"/>
+        <fielddef tag="205" name="MaturityDay" type="String"/>
+        <fielddef tag="201" name="PutOrCall" type="String"/>
+        <fielddef tag="202" name="StrikePrice" type="String"/>
+        <fielddef tag="336" name="TradingSessionID" type="String"/>
+
+        <fielddef tag="107" name="SecurityDesc" type="int"/>
+        <fielddef tag="39" name="OrdStatus" type="int"/>
+        <fielddef tag="58" name="Text" type="String"/>
+
+    </fielddic>
+    <msgdic>
+        <msgdef msgtype="5" name="Logout">
+            <field tag="789" req="N"/>
+        </msgdef>
+
+        <msgdef msgtype="D" name="New Order - Single">
+            <field tag="9701" req="N"/>
+            <field tag="9702" req="Y"/>
+            <field tag="9706" req="N"/>
+            <field tag="9707" req="N"/>
+            <field tag="9708" req="N"/>
+            <field tag="9717" req="Y"/>
+        </msgdef>
+
+        <msgdef msgtype="F" name="Order Cancel Request">
+            <field tag="9717" req="Y"/>
+        </msgdef>
+
+        <msgdef msgtype="i" name="Mass Quote">
+            <field tag="9771" req="Y"/>
+            <field tag="9773" req="N"/>
+        </msgdef>
+
+        <msgdef msgtype="8" name="Execution Report">
+            <field tag="337" req="N"/>
+            <field tag="375" req="N"/>
+            <field tag="527" req="N"/>
+            <field tag="1057" req="N"/>
+            <field tag="9717" req="Y"/>
+        </msgdef>
+
+        <msgdef msgtype="9" name="Order Cancel Reject">
+            <field tag="17" req="Y"/>
+        </msgdef>
+
+        <msgdef msgtype="U01" name="Add Floor Trade">
+            <field tag="17" req="Y"/>
+            <field tag="109" req="Y"/>
+            <field tag="76" req="N"/>
+            <field tag="55" req="Y"/>
+            <field tag="48" req="N"/>
+            <field tag="107" req="N"/>
+            <field tag="39" req="N"/>
+            <field tag="58" req="N"/>
+            <field tag="1" req="N"/>
+            <field tag="375" req="Y"/>
+            <field tag="337" req="Y"/>
+            <field tag="167" req="Y"/>
+            <field tag="200" req="Y"/>
+            <field tag="205" req="Y"/>
+            <field tag="201" req="Y"/>
+            <field tag="202" req="Y"/>
+            <field tag="54" req="Y"/>
+            <field tag="38" req="Y"/>
+            <field tag="44" req="N"/>
+            <field tag="60" req="Y"/>
+            <field tag="77" req="N"/>
+            <field tag="336" req="Y"/>
+            <field tag="439" req="N"/>
+            <field tag="440" req="N"/>
+            <field tag="9324" req="Y"/>
+        </msgdef>
+        <msgdef msgtype="U02" name="Delete Floor Trade">
+            <field tag="109" req="Y"/>
+            <field tag="76" req="Y"/>
+            <field tag="17" req="Y"/>
+            <field tag="55" req="Y"/>
+            <field tag="48" req="N"/>
+            <field tag="167" req="Y"/>
+            <field tag="200" req="Y"/>
+            <field tag="205" req="Y"/>
+            <field tag="201" req="Y"/>
+            <field tag="202" req="Y"/>
+            <field tag="336" req="Y"/>
+            <field tag="39" req="N"/>
+            <field tag="107" req="N"/>
+        </msgdef>
+    </msgdic>
+</fixdic>
+
+

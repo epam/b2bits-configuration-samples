@@ -1,0 +1,156 @@
+# //SEE https://github.com/real-logic/Aeron/wiki/Configuration-Options
+
+# Aeron Base Directory
+# Base directory used for client/driver communication.
+#aeron.dir=./logs/aeron
+
+# Aeron Delete Directories on Start
+# Attempt to delete directories on start if they exist
+aeron.dir.delete.on.start = true
+
+
+##############################################################
+#@@@@@@@####### Driver Configuration Options #################
+##############################################################
+
+# Read Buffer Length
+# Internal byte buffer length used for reads.
+# aeron.rcv.buffer.length = 4096
+
+# Term Buffer Length
+# Used to set TERM buffer length on the Publication This buffer is created when a publication connects to a
+# MediaDriver. Need to configure at producers media driver to take effect. Once TERM buffer is full, a new
+# TERM buffer is allocated and TERM id is incremented.
+# Default: 16Mb
+#aeron.term.buffer.length = 16777216
+
+# Term Buffer Max Length
+# Used to set the maximum length buffer that is created when a subscriber connects to a publication. The
+# term buffer size is dictated by the publication, but if it exceeds that of the locally set TERM_BUFFER_MAX_LENGTH
+# on subscribers MediaDriver, the subscriber will fail to connect to the publication. (Driver will log and send
+# an error to the receiver app)
+# Default: 16Mb
+#aeron.term.buffer.max.length = 16777216
+
+# Conductor Buffer Length
+# Length of the underlying ring buffer used for the conductor (control messages)
+# Default: 1024 * 1024 + RingBufferDescriptor.TRAILER_LENGTH
+#aeron.conductor.buffer.length=
+
+# To Clients Buffer Length
+# Length of the underlying ring buffer used for the driver broadcast buffer to the clients (data)
+# Default:1024 * 1024 + BroadcastBufferDescriptor.TRAILER_LENGTH
+#aeron.clients.buffer.length=
+
+# Counter Buffer Length
+# Length of the buffer used for the Aeron counters. This is used for statistics.
+# Default: 16Mb
+#aeron.dir.counters.length = 16777216
+
+# Initial Window Length
+# Default initial window length for flow control sender to receiver purposes. Must be >= MTU. Used in a
+# DriverConnection (off the wire to logbuffer)
+# Default: 128 Kb
+#aeron.rcv.initial.window.length = 131072
+
+# Status Message Timeout
+# Maximum idle time between sending an SM. Status messages are sent out upon certain events, or if no events
+# occur, a status message will be sent out after this amount of time. Events are every quarter term and when
+# the termID changes (rolls over term boundary)
+# Default: 200 milliseconds
+#aeron.rcv.status.message.timeout = 200000000
+
+# Socket RCVBUF Length
+# Allows you to set the underlying socket receive buffer. Zero means OS default
+# Default: 128 Kb
+# aeron.socket.so_rcvbuf = 131072
+
+# Socket SNDBUF Length
+# Allows you to set the underlying socket send buffer. Zero means OS default
+# Default: 0
+# aeron.socket.so_sndbuf = 0
+
+# Publication Linger Timeout
+# aeron.publication.linger.timeout
+# Default: 5 seconds
+# aeron.publication.linger.timeout = 5000000000
+
+# Publication Term Window Length
+# Window size in bytes that the publication can be ahead of the current flow control strategy's last consumed message.
+# Default: 0
+# aeron.publication.term.window.length = 0
+
+# Subscription Term Window Length
+# Window size in bytes that the subscription can be behind the current publications buffer position or the
+# MediaDriver’s receiver buffer position.
+# Default: 0
+# aeron.subscription.term.window.length = 0
+
+# Client Liveness Timeout
+# Duration the driver will wait without hearing a keepalive before timing out a locally connected client
+# Default: 5 seconds
+#aeron.client.liveness.timeout = 5000000000
+
+# Image Liveness Timeout
+# Duration the driver will wait without hearing a keepalive from a remote MediaDriver before timing out the image
+# Default: 10 seconds
+#aeron.image.liveness.timeout = 10000000000
+
+# Data Loss Rate
+# The Media Driver will simulate data message loss by discarding incoming data packets at the rate that is
+# specified. Specifying 1 means 100%, so for 50% it would be .5.
+# Default: 0.0
+#aeron.debug.data.loss.rate= 0.0
+
+# Data Loss Rate Seed
+# Provide the random number generator’s seed for the data loss rate
+# Default: -1
+#aeron.debug.data.loss.seed = -1
+
+# Control Loss Rate
+# The Media Driver will simulate control message (What constitutes a control message? Its on the
+# Wiki https://github.com/real-logic/Aeron/wiki/Media-Driver-Operation ) loss by discarding incoming data
+# packets at the rate that is specified. Specifying 1 means 100%, so for 50% it would be .5.
+# Default: -1
+#aeron.debug.control.loss.seed = -1
+
+# Agent Idle Strategy
+# Specifies the IdleStrategy interface implementation to be used when Aeron is idle to control how often
+# (CPU intensive) the activity check will be. If set to NULL, it will default to
+# uk.co.real_logic.agrona.concurrent.BackoffIdleStrategy.
+#  Supported Values:
+#  uk.co.real_logic.agrona.concurrent.BackoffIdleStrategy
+#  uk.co.real_logic.agrona.concurrent.BusySpinIdleStrategy
+#  uk.co.real_logic.agrona.concurrent.NoOpIdleStrategy
+# Default: uk.co.real_logic.agrona.concurrent.BackoffIdleStrategy
+#aeron.agent.idle.strategy=uk.co.real_logic.agrona.concurrent.BackoffIdleStrategy
+
+# Sender Unicast Flow Control Strategy
+# Specifies the SenderFlowControl interface implementation to be used when determining when the unicast
+# source shall become flow controlled. The default implementation will allow a publisher to continue sending
+# while at least one subscriber has consumed data up to the window length behind the publisher's current position.
+# Default: uk.co.real_logic.aeron.driver.UnicastSenderFlowControl
+#aeron.unicast.flow.control.strategy = uk.co.real_logic.aeron.driver.UnicastSenderFlowControl
+
+# Sender Multicast Flow Control Strategy
+# Specifies the SenderFlowControl interface implementation to be used when determining when the multicast source
+# shall become flow controlled. The default implementation will allow a publisher to continue sending while
+# at least one subscriber has consumed data up to the window length behind the publisher's current position.
+# Default: uk.co.real_logic.aeron.driver.UnicastSenderFlowControl
+#aeron.multicast.flow.control.strategy = uk.co.real_logic.aeron.driver.UnicastSenderFlowControl
+
+# MTU Length
+# Maximum Transmission Unit. Largest unit of data that will actually be sent before fragmentation logic handles
+# splitting up the data. Can't have SO_RCVBUF smaller than the MTU.
+# Default: 4Kb
+#aeron.mtu.length=4096
+
+# Driver Threading Mode
+# Threading model used for the Media Driver
+#  Allowed Values:
+#  DEDICATED - 3 Threads, one dedicated to each of the agents.
+#  SHARED_NETWORK - 2 Threads; One thread shared for both the Sender and Receiver agents, and one for the
+#                   DriverConductor.
+#  SHARED - 1 thread shared by all 3 agents.
+# Default: DEDICATED
+#aeron.threading.mode = DEDICATED

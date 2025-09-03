@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <SecurityPatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %c{1.} - %msg%n">
+                <replace regex="(554(\s)*=(\s)*)([\w[^\w#|\x01,]]*?)((\s)*[#|\||\x01|,])" replacement="$1*****$5"/>
+                <replace
+                        regex="([P|p][A|a][S|s][S|s][W|w][O|o][R|r][D|d](\s)*[=|'|\x22](\s)*)([^:][\w[^\w,'\x22\x20\n]]*)([,|'|\x22|\x20|\n])"
+                        replacement="$1*****$5"/>
+                <replace regex="&lt;Password&gt;(.*?)&lt;/Password&gt;"
+                         replacement="&lt;Password&gt;*****&lt;/Password&gt;"/>
+                <replace regex="([P|p][A|a][S|s][S|s][W|w][O|o][R|r][D|d]\x22(\s)*:(\s)*\x22)([^\x22]*)(\x22)" replacement="$1*****$5"/>
+            </SecurityPatternLayout>
+        </Console>
+        <RandomAccessFile name="fixedgejLog" fileName="${sys:fixaj.home:-./var/log/fixedge-java/fixedgej.log" immediateFlush="false">
+            <SecurityPatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %c{1.} - %msg%n">
+                <replace regex="(554(\s)*=(\s)*)([\w[^\w#|\x01,]]*?)((\s)*[#|\||\x01|,])" replacement="$1*****$5"/>
+                <replace
+                        regex="([P|p][A|a][S|s][S|s][W|w][O|o][R|r][D|d](\s)*[=|'|\x22](\s)*)([^:][\w[^\w,'\x22\x20\n]]*)([,|'|\x22|\x20|\n])"
+                        replacement="$1*****$5"/>
+                <replace regex="&lt;Password&gt;(.*?)&lt;/Password&gt;"
+                         replacement="&lt;Password&gt;*****&lt;/Password&gt;"/>
+                <replace regex="([P|p][A|a][S|s][S|s][W|w][O|o][R|r][D|d]\x22(\s)*:(\s)*\x22)([^\x22]*)(\x22)" replacement="$1*****$5"/>
+            </SecurityPatternLayout>
+        </RandomAccessFile>
+        <RandomAccessFile name="blLog" fileName="${sys:fixaj.home:-./var/log/fixedge-java/bl_rules.log" immediateFlush="false">
+            <SecurityPatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %c{1.} - %msg%n">
+                <replace regex="(554(\s)*=(\s)*)([\w[^\w#|\x01,]]*?)((\s)*[#|\||\x01|,])" replacement="$1*****$5"/>
+                <replace
+                        regex="([P|p][A|a][S|s][S|s][W|w][O|o][R|r][D|d](\s)*[=|'|\x22](\s)*)([^:][\w[^\w,'\x22\x20\n]]*)([,|'|\x22|\x20|\n])"
+                        replacement="$1*****$5"/>
+                <replace regex="&lt;Password&gt;(.*?)&lt;/Password&gt;"
+                         replacement="&lt;Password&gt;*****&lt;/Password&gt;"/>
+                <replace regex="([P|p][A|a][S|s][S|s][W|w][O|o][R|r][D|d]\x22(\s)*:(\s)*\x22)([^\x22]*)(\x22)" replacement="$1*****$5"/>
+            </SecurityPatternLayout>
+        </RandomAccessFile>
+        <RandomAccessFile name="kieLog" fileName="${sys:fixaj.home:-./var/log/fixedge-java/kie.log" immediateFlush="false"/>
+        <RandomAccessFile name="adminDebugFile" fileName="${sys:fixaj.home:-./var/log/fixedge-java/fixedgej-admin.log" immediateFlush="false">
+            <SecurityPatternLayout pattern="%d{ISO8601} %-5p (%t) [%c{1}(%M:%L)] %m%n">
+                <replace regex="(554(\s)*=(\s)*)([\w[^\w#|\x01,]]*?)((\s)*[#|\||\x01|,])" replacement="$1*****$5"/>
+                <replace
+                        regex="([P|p][A|a][S|s][S|s][W|w][O|o][R|r][D|d](\s)*[=|'|\x22](\s)*)([^:][\w[^\w,'\x22\x20\n]]*)([,|'|\x22|\x20|\n])"
+                        replacement="$1*****$5"/>
+                <replace regex="&lt;Password&gt;(.*?)&lt;/Password&gt;"
+                         replacement="&lt;Password&gt;*****&lt;/Password&gt;"/>
+                <replace regex="([P|p][A|a][S|s][S|s][W|w][O|o][R|r][D|d]\x22(\s)*:(\s)*\x22)([^\x22]*)(\x22)" replacement="$1*****$5"/>
+            </SecurityPatternLayout>
+        </RandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+        </Root>
+
+        <Logger name="Groovy rule" level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="blLog"/>
+        </Logger>
+
+
+        <Logger name="com.epam.fixengine" level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="fixedgejLog"/>
+        </Logger>
+
+        <Logger name="com.epam.fej" level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="fixedgejLog"/>
+        </Logger>
+
+        <Logger name="com.epam.fej.routing.drools" level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="kieLog"/>
+        </Logger>
+
+        <Logger name="org.kie" level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="kieLog"/>
+        </Logger>
+
+        <Logger name="org.springframework" level="INFO"/>
+        <Logger name="com.epam.fej.cluster.lbc.service" level="INFO"/>
+        <Logger name="com.hazelcast" level="warn"/>
+        <Logger name="org.crsh" level="warn"/>
+        <Logger name="org.apache.kafka" level="info"/>
+        <Logger name="org.eclipse.jetty" level="info"/>
+
+        <Logger name="com.epam.fej.monitoring" level="INFO" additivity="false">
+            <AppenderRef ref="adminDebugFile"/>
+        </Logger>
+    </Loggers>
+</Configuration>
