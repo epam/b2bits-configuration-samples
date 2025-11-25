@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FIXEdge>
-    <BusinessLayer>
-        <!-- See https://kb.b2bits.com/display/B2BITS/Configuring+Business+Layer for details -->
+	<BusinessLayer>
+		<!-- Rule for status messages -->
+		<!-- Rule messages from Simple Client -->
+		<Rule>
+			<Source>
+				<FixSession SenderCompID="FIXCLIENT4" TargetCompID="FIXEDGE"/>
+			</Source>
+			<Action>
+				<Send>
+					<FixSession SenderCompID="FIXEDGE" TargetCompID="FIXCLIENT4"/>
+				</Send>
+			</Action>
+		</Rule>
+		<!-- <Rule>
+			<Source Name="Kafka" />
+			<Action>
+				<Send>
+					<FixSession SenderCompID="FIXEDGE" TargetCompID="FIXCLIENT4"/>
+				</Send>
+			</Action>
+		</Rule>	 -->
+		<DefaultRule>
+			<Action>
+				<DoNothing/>
+			</Action>
+		</DefaultRule>
 
-        <Rule Description="Echo every message back in TestFIXAcceptor session">
-            <Source Name = "TestFIXAcceptor"/>
-            <Action>
-                <Send Name="TestFIXAcceptor"/>
-            </Action>
-        </Rule>
-
-        <DefaultRule>
-            <Action>
-                <DoNothing/>
-            </Action>
-        </DefaultRule>
-
-    </BusinessLayer>
+	</BusinessLayer>
 </FIXEdge>
